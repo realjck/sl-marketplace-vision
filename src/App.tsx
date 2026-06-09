@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useStore } from './store/useStore'
 import Dropzone from './components/Dropzone'
+import ControlBar from './components/ControlBar'
 
 export default function App() {
   const loadFromDB = useStore(s => s.loadFromDB)
@@ -16,9 +17,7 @@ export default function App() {
         style={{ gridTemplateColumns: '180px 1fr 280px' }}
       >
         <Dropzone />
-        <div className="bg-[#0f172a] rounded-xl h-52 flex items-center justify-center text-slate-600 text-xs">
-          Controls
-        </div>
+        <ControlBar />
         <div className="bg-[#0f172a] rounded-xl h-52 flex items-center justify-center text-slate-600 text-xs">
           KPIs
         </div>
