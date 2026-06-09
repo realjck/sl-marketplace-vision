@@ -46,6 +46,7 @@ export function parseCSV(content: string, existingIds: Set<number>): ParseResult
     const orderId = Number(row[1])
     const status = row[8]
 
+    if (isNaN(orderId)) { skipped++; continue }
     if (status !== 'Delivered') { skipped++; continue }
     if (existingIds.has(orderId)) { skipped++; continue }
 
