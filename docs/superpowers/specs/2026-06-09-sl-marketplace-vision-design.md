@@ -21,20 +21,34 @@ Single-page dashboard application for visualizing Second Life marketplace sales 
 
 ## CSV Format
 
-French-language headers from Linden Lab export:
+The first row is always a header row and is **skipped regardless of language**. Columns are parsed by position — the order is fixed across all Linden Lab locales.
 
-```
-Date, Commande #, Unité de stock, Article, ID d'article de la commande,
-Acheteur, Destinataire, Prix, État, Commission, Allocations, Montant net
-```
+| Index | Field | Type | Notes |
+|---|---|---|---|
+| 0 | date | datetime string | `31/12/2024 14 h 13 +00:00` |
+| 1 | orderId | integer | deduplication key |
+| 2 | sku | string | |
+| 3 | productName | string | |
+| 4 | orderItemId | integer | |
+| 5 | buyer | string | |
+| 6 | recipient | string | |
+| 7 | price | integer | L$ |
+| 8 | status | string | always `"Delivered"` in SL exports |
+| 9 | commission | integer | L$ |
+| 10 | allocations | integer | L$ |
+| 11 | netAmount | integer | L$ |
 
-Date format: `31/12/2024 14 h 13 +00:00`
+**Validation** (applied to the first data row to confirm file structure):
+- Exactly 12 columns
+- Index 0: parseable as a date
+- Index 1, 7, 9, 10, 11: numeric
+- If validation fails, the file is rejected with an error message — the header row is not checked
 
 ## Data Rules
 
-- **Deduplication**: by `Commande #` — re-importing an existing order is silently ignored
-- **Status filter**: only `État = "Delivered"` transactions are stored and used
-- **Free items** (Prix = 0): counted in volume metrics, excluded from revenue/net calculations
+- **Deduplication**: by column index 1 (order ID) — re-importing an existing order is silently ignored
+- **Status filter**: only rows where index 8 === `"Delivered"` are stored and used
+- **Free items** (index 7 === 0): counted in volume metrics, excluded from revenue/net calculations
 
 ## Layout
 
