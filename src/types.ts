@@ -13,5 +13,5 @@ export interface Transaction {
   netAmount: number
 }
 
-export type ChartTab = 'area' | 'bar' | 'heatmap'
+export type ChartTab = 'area' | 'bar'
 export type ChartMetric = 'revenue' | 'volume'
