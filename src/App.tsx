@@ -3,6 +3,7 @@ import { useStore } from './store/useStore'
 import Dropzone from './components/Dropzone'
 import ControlBar from './components/ControlBar'
 import KPICards from './components/KPICards'
+import ChartArea from './components/ChartArea'
 
 export default function App() {
   const loadFromDB = useStore(s => s.loadFromDB)
@@ -21,9 +22,7 @@ export default function App() {
         <ControlBar />
         <KPICards />
       </div>
-      <div className="bg-[#0f172a] rounded-xl p-4 flex-1 min-h-80 flex items-center justify-center text-slate-600 text-xs">
-        Charts
-      </div>
+      <ChartArea />
     </div>
   )
 }
