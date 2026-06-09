@@ -45,12 +45,15 @@ export default function TopArticlesChart() {
               tickFormatter={(v: string) => (v.length > 28 ? v.slice(0, 28) + '…' : v)}
             />
             <Tooltip
+              cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }}
               contentStyle={{
                 background: '#0b130b',
                 border: '1px solid #1a3a1a',
                 borderRadius: 8,
+                maxWidth: 220,
+                fontSize: 11,
               }}
-              labelStyle={{ color: '#7a9e7a' }}
+              labelStyle={{ color: '#7a9e7a', whiteSpace: 'normal', wordBreak: 'break-word' }}
               itemStyle={{ color: '#00e676' }}
             />
             <Bar dataKey={dataKey} fill="#00e676" radius={[0, 4, 4, 0]} />
