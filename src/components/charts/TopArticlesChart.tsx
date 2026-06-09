@@ -17,41 +17,46 @@ export default function TopArticlesChart() {
 
   const data = useMemo(() => groupByProduct(filteredTransactions), [filteredTransactions])
   const dataKey = chartMetric === 'revenue' ? 'revenue' : 'volume'
+  const chartHeight = Math.max(280, data.length * 36 + 40)
 
   return (
-    <ResponsiveContainer width="100%" height={Math.max(280, data.length * 36 + 40)}>
-      <BarChart
-        data={data}
-        layout="vertical"
-        margin={{ top: 0, right: 20, left: 0, bottom: 0 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" horizontal={false} />
-        <XAxis
-          type="number"
-          tick={{ fill: '#64748b', fontSize: 11 }}
-          axisLine={false}
-          tickLine={false}
-        />
-        <YAxis
-          type="category"
-          dataKey="productName"
-          width={200}
-          tick={{ fill: '#94a3b8', fontSize: 11 }}
-          axisLine={false}
-          tickLine={false}
-          tickFormatter={(v: string) => (v.length > 28 ? v.slice(0, 28) + '…' : v)}
-        />
-        <Tooltip
-          contentStyle={{
-            background: '#1e293b',
-            border: '1px solid #334155',
-            borderRadius: 8,
-          }}
-          labelStyle={{ color: '#94a3b8' }}
-          itemStyle={{ color: '#3b82f6' }}
-        />
-        <Bar dataKey={dataKey} fill="#3b82f6" radius={[0, 4, 4, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
+    <div className="chart-scroll overflow-y-auto" style={{ height: 280 }}>
+      <div style={{ height: chartHeight, minWidth: 0 }}>
+        <ResponsiveContainer width="100%" height={chartHeight}>
+          <BarChart
+            data={data}
+            layout="vertical"
+            margin={{ top: 0, right: 20, left: 0, bottom: 0 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" stroke="#0d1a0d" horizontal={false} />
+            <XAxis
+              type="number"
+              tick={{ fill: '#3a6a3a', fontSize: 11 }}
+              axisLine={false}
+              tickLine={false}
+            />
+            <YAxis
+              type="category"
+              dataKey="productName"
+              width={200}
+              tick={{ fill: '#7a9e7a', fontSize: 11 }}
+              axisLine={false}
+              tickLine={false}
+              tickFormatter={(v: string) => (v.length > 28 ? v.slice(0, 28) + '…' : v)}
+            />
+            <Tooltip
+              contentStyle={{
+                background: '#0d1520',
+                border: '1px solid #1a3a1a',
+                borderRadius: 8,
+              }}
+              labelStyle={{ color: '#7a9e7a' }}
+              itemStyle={{ color: '#00e676' }}
+            />
+            <Bar dataKey={dataKey} fill="#00e676" radius={[0, 4, 4, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
   )
 }

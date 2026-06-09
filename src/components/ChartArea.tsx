@@ -15,16 +15,16 @@ export default function ChartArea() {
   const setChartMetric = useStore(s => s.setChartMetric)
 
   return (
-    <div className="bg-[#0f172a] rounded-xl p-4 flex-1">
-      <div className="flex items-center gap-2 mb-4">
+    <div className="bg-[#080d14] rounded-xl p-4 flex-1 flex flex-col min-h-0">
+      <div className="flex items-center gap-2 mb-4 shrink-0">
         {TABS.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
               activeTab === tab.id
-                ? 'bg-blue-600 text-white'
-                : 'bg-[#1e293b] text-slate-500 hover:text-slate-300'
+                ? 'bg-[#00e676] text-black'
+                : 'bg-[#0d1520] text-[#3a6a3a] hover:text-[#00e676]/70'
             }`}
           >
             {tab.label}
@@ -37,8 +37,8 @@ export default function ChartArea() {
               onClick={() => setChartMetric(m)}
               className={`px-3 py-1 rounded-lg text-xs transition-colors ${
                 chartMetric === m
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-[#1e293b] text-slate-500 hover:text-slate-300'
+                  ? 'bg-[#00e676] text-black'
+                  : 'bg-[#0d1520] text-[#3a6a3a] hover:text-[#00e676]/70'
               }`}
             >
               {m === 'revenue' ? 'Revenue L$' : 'Volume'}

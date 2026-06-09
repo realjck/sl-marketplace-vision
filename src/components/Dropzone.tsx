@@ -54,13 +54,13 @@ export default function Dropzone() {
   return (
     <div
       {...getRootProps()}
-      className={`border-2 border-dashed rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer bg-[#0f172a] transition-colors min-h-52 ${
-        isDragActive ? 'border-blue-500 bg-blue-950/30' : 'border-slate-700 hover:border-slate-500'
+      className={`border-2 border-dashed rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer bg-[#080d14] transition-colors min-h-52 ${
+        isDragActive ? 'border-[#00e676] bg-[#00e676]/5' : 'border-[#1a3a1a] hover:border-[#00e676]/50'
       }`}
     >
       <input {...getInputProps()} />
       <svg
-        className="w-8 h-8 text-slate-600"
+        className="w-8 h-8 text-[#3a6a3a]"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ export default function Dropzone() {
           d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
         />
       </svg>
-      <p className="text-xs text-slate-500 text-center leading-relaxed px-3">
+      <p className="text-xs text-[#3a6a3a] text-center leading-relaxed px-3">
         Drag & Drop
         <br />
         Linden Lab
@@ -82,7 +82,7 @@ export default function Dropzone() {
       {importStatus.state !== 'idle' && (
         <p
           className={`text-xs text-center px-3 mt-1 leading-tight ${
-            importStatus.state === 'error' ? 'text-red-400' : 'text-slate-400'
+            importStatus.state === 'error' ? 'text-red-400' : 'text-[#00e676]/70'
           }`}
         >
           {importStatus.message}

@@ -38,34 +38,34 @@ export default function ProductFilter() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-full bg-[#1e293b] border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 flex justify-between items-center hover:border-slate-500 transition-colors"
+        className="w-full bg-[#0d1520] border border-[#1a3a1a] rounded-lg px-3 py-2 text-sm text-[#7a9e7a] flex justify-between items-center hover:border-[#00e676]/50 transition-colors"
       >
         <span className="truncate">{label}</span>
-        <span className="text-blue-400 ml-2 shrink-0">▾</span>
+        <span className="text-[#00e676] ml-2 shrink-0">▾</span>
       </button>
       {open && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-[#1e293b] border border-slate-700 rounded-lg shadow-2xl max-h-60 overflow-y-auto">
-          <label className="flex items-center gap-2 px-3 py-2 hover:bg-slate-700/50 cursor-pointer border-b border-slate-700">
+        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-[#0d1520] border border-[#1a3a1a] rounded-lg shadow-2xl max-h-60 overflow-y-auto">
+          <label className="flex items-center gap-2 px-3 py-2 hover:bg-[#00e676]/5 cursor-pointer border-b border-[#1a3a1a]">
             <input
               type="checkbox"
               checked={allSelected}
               onChange={toggleAll}
-              className="accent-blue-500"
+              className="accent-[#00e676]"
             />
-            <span className="text-sm font-semibold text-slate-200">ALL</span>
+            <span className="text-sm font-semibold text-[#00e676]">ALL</span>
           </label>
           {products.map(name => (
             <label
               key={name}
-              className="flex items-center gap-2 px-3 py-2 hover:bg-slate-700/50 cursor-pointer"
+              className="flex items-center gap-2 px-3 py-2 hover:bg-[#00e676]/5 cursor-pointer"
             >
               <input
                 type="checkbox"
                 checked={!allSelected && filters.selectedProducts.includes(name)}
                 onChange={() => toggleProduct(name)}
-                className="accent-blue-500 shrink-0"
+                className="accent-[#00e676] shrink-0"
               />
-              <span className="text-sm text-slate-300 truncate">{name}</span>
+              <span className="text-sm text-[#7a9e7a] truncate">{name}</span>
             </label>
           ))}
         </div>

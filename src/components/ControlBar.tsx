@@ -24,14 +24,22 @@ export default function ControlBar() {
     setFilters({ dateStart: start, dateEnd: end })
   }
 
+  function setYMinus1() {
+    const end = new Date()
+    end.setFullYear(end.getFullYear() - 1)
+    const start = new Date(end)
+    start.setFullYear(start.getFullYear() - 1)
+    setFilters({ dateStart: start, dateEnd: end })
+  }
+
   const isAll = !filters.dateStart && !filters.dateEnd
 
   return (
-    <div className="bg-[#0f172a] rounded-xl p-4 flex flex-col gap-3">
-      <p className="text-xs text-slate-500 uppercase tracking-widest">Controls</p>
+    <div className="bg-[#080d14] rounded-xl p-4 flex flex-col gap-3">
+      <p className="text-xs text-[#3a5a3a] uppercase tracking-widest">Controls</p>
 
       <div>
-        <p className="text-xs text-slate-600 uppercase tracking-wider mb-1.5">Date Range</p>
+        <p className="text-xs text-[#3a5a3a] uppercase tracking-wider mb-1.5">Date Range</p>
         <div className="flex items-center gap-2">
           <DatePicker
             selected={filters.dateStart}
@@ -41,9 +49,9 @@ export default function ControlBar() {
             endDate={filters.dateEnd ?? undefined}
             placeholderText="Start date"
             dateFormat="yyyy-MM-dd"
-            className="bg-[#1e293b] border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-slate-300 w-full cursor-pointer"
+            className="bg-[#0d1520] border border-[#1a3a1a] rounded-lg px-3 py-1.5 text-sm text-[#7a9e7a] w-full cursor-pointer"
           />
-          <span className="text-slate-600 shrink-0">→</span>
+          <span className="text-[#3a5a3a] shrink-0">→</span>
           <DatePicker
             selected={filters.dateEnd}
             onChange={(date: Date | null) => setFilters({ dateEnd: date })}
@@ -53,15 +61,16 @@ export default function ControlBar() {
             minDate={filters.dateStart ?? undefined}
             placeholderText="End date"
             dateFormat="yyyy-MM-dd"
-            className="bg-[#1e293b] border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-slate-300 w-full cursor-pointer"
+            className="bg-[#0d1520] border border-[#1a3a1a] rounded-lg px-3 py-1.5 text-sm text-[#7a9e7a] w-full cursor-pointer"
           />
         </div>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         {[
           { label: 'All', fn: setAll, active: isAll },
           { label: 'Last Year', fn: setLastYear, active: false },
+          { label: 'Y-1', fn: setYMinus1, active: false },
           { label: 'Last Month', fn: setLastMonth, active: false },
         ].map(({ label, fn, active }) => (
           <button
@@ -69,8 +78,8 @@ export default function ControlBar() {
             onClick={fn}
             className={`px-3 py-1 rounded-lg text-xs border transition-colors ${
               active
-                ? 'border-blue-500 text-blue-400'
-                : 'border-slate-700 text-slate-500 hover:border-slate-500 hover:text-slate-400'
+                ? 'border-[#00e676] text-[#00e676]'
+                : 'border-[#1a3a1a] text-[#3a6a3a] hover:border-[#00e676]/50 hover:text-[#00e676]/70'
             }`}
           >
             {label}
@@ -79,7 +88,7 @@ export default function ControlBar() {
       </div>
 
       <div>
-        <p className="text-xs text-slate-600 uppercase tracking-wider mb-1.5">Filter by Product</p>
+        <p className="text-xs text-[#3a5a3a] uppercase tracking-wider mb-1.5">Filter by Product</p>
         <ProductFilter />
       </div>
     </div>
