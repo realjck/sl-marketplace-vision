@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useStore } from './store/useStore'
+import Dropzone from './components/Dropzone'
 
 export default function App() {
   const loadFromDB = useStore(s => s.loadFromDB)
@@ -14,9 +15,7 @@ export default function App() {
         className="grid gap-3"
         style={{ gridTemplateColumns: '180px 1fr 280px' }}
       >
-        <div className="border-2 border-dashed border-slate-700 rounded-xl h-52 flex items-center justify-center text-slate-600 text-xs">
-          Dropzone
-        </div>
+        <Dropzone />
         <div className="bg-[#0f172a] rounded-xl h-52 flex items-center justify-center text-slate-600 text-xs">
           Controls
         </div>
