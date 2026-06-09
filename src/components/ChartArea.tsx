@@ -1,5 +1,6 @@
 import { useStore } from '../store/useStore'
 import SalesAreaChart from './charts/SalesAreaChart'
+import TopArticlesChart from './charts/TopArticlesChart'
 import type { ChartTab } from '../types'
 
 const TABS: { id: ChartTab; label: string }[] = [
@@ -52,11 +53,7 @@ export default function ChartArea() {
       </div>
 
       {activeTab === 'area' && <SalesAreaChart />}
-      {activeTab === 'bar' && (
-        <div className="h-72 flex items-center justify-center text-slate-600 text-xs">
-          Top Articles — Task 11
-        </div>
-      )}
+      {activeTab === 'bar' && <TopArticlesChart />}
       {activeTab === 'heatmap' && (
         <div className="h-72 flex items-center justify-center text-slate-600 text-xs">
           Heatmap — Task 12
