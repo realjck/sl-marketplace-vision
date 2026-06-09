@@ -61,7 +61,7 @@ export default function ProductFilter() {
             >
               <input
                 type="checkbox"
-                checked={allSelected || filters.selectedProducts.includes(name)}
+                checked={!allSelected && filters.selectedProducts.includes(name)}
                 onChange={() => toggleProduct(name)}
                 className="accent-blue-500 shrink-0"
               />
