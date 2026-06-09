@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import { useStore } from '../store/useStore'
 import ProductFilter from './ProductFilter'
+import PreferencesModal from './PreferencesModal'
 
 export default function ControlBar() {
   const filters = useStore(s => s.filters)
   const setFilters = useStore(s => s.setFilters)
+  const [prefsOpen, setPrefsOpen] = useState(false)
 
   function setAll() {
     setFilters({ dateStart: null, dateEnd: null })
@@ -17,13 +20,6 @@ export default function ControlBar() {
     setFilters({ dateStart: start, dateEnd: end })
   }
 
-  function setLastMonth() {
-    const end = new Date()
-    const start = new Date()
-    start.setDate(start.getDate() - 30)
-    setFilters({ dateStart: start, dateEnd: end })
-  }
-
   function setYMinus1() {
     const end = new Date()
     end.setFullYear(end.getFullYear() - 1)
@@ -32,10 +28,17 @@ export default function ControlBar() {
     setFilters({ dateStart: start, dateEnd: end })
   }
 
+  function setLastMonth() {
+    const end = new Date()
+    const start = new Date()
+    start.setDate(start.getDate() - 30)
+    setFilters({ dateStart: start, dateEnd: end })
+  }
+
   const isAll = !filters.dateStart && !filters.dateEnd
 
   return (
-    <div className="bg-[#070d07] rounded-xl p-4 flex flex-col gap-3">
+    <div className="bg-[#070d07] rounded-xl p-4 flex flex-col gap-3 h-full">
       <p className="text-xs text-[#3a5a3a] uppercase tracking-widest">Controls</p>
 
       <div>
@@ -91,6 +94,31 @@ export default function ControlBar() {
         <p className="text-xs text-[#3a5a3a] uppercase tracking-wider mb-1.5">Filter by Product</p>
         <ProductFilter />
       </div>
+
+      <div className="mt-auto">
+        <button
+          onClick={() => setPrefsOpen(true)}
+          className="text-[#3a6a3a] hover:text-[#00e676] transition-colors"
+          title="Preferences"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <PreferencesModal open={prefsOpen} onClose={() => setPrefsOpen(false)} />
     </div>
   )
 }
