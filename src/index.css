@@ -38,17 +38,17 @@ body {
   border-color: #3a5a3a !important;
 }
 
-/* Elegant thin scrollbar for chart areas */
-.chart-scroll::-webkit-scrollbar {
+/* Elegant thin scrollbar */
+.slim-scroll::-webkit-scrollbar {
   width: 4px;
 }
-.chart-scroll::-webkit-scrollbar-track {
+.slim-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
-.chart-scroll::-webkit-scrollbar-thumb {
+.slim-scroll::-webkit-scrollbar-thumb {
   background: #1a3a1a;
   border-radius: 2px;
 }
-.chart-scroll::-webkit-scrollbar-thumb:hover {
+.slim-scroll::-webkit-scrollbar-thumb:hover {
   background: #00e676;
 }
