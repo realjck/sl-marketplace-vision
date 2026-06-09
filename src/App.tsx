@@ -4,6 +4,7 @@ import Dropzone from './components/Dropzone'
 import ControlBar from './components/ControlBar'
 import KPICards from './components/KPICards'
 import ChartArea from './components/ChartArea'
+import PreferencesModal from './components/PreferencesModal'
 
 export default function App() {
   const loadFromDB = useStore(s => s.loadFromDB)
@@ -23,6 +24,7 @@ export default function App() {
         <KPICards />
       </div>
       <ChartArea />
+      <PreferencesModal />
     </div>
   )
 }
