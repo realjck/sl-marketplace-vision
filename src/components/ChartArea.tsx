@@ -47,8 +47,10 @@ export default function ChartArea() {
         </div>
       </div>
 
-      {activeTab === 'area' && <SalesAreaChart />}
-      {activeTab === 'bar' && <TopArticlesChart />}
+      <div className="flex-1 min-h-0">
+        {activeTab === 'area' && <SalesAreaChart />}
+        {activeTab === 'bar' && <TopArticlesChart />}
+      </div>
     </div>
   )
 }

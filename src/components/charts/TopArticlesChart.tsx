@@ -20,7 +20,7 @@ export default function TopArticlesChart() {
   const chartHeight = Math.max(280, data.length * 36 + 40)
 
   return (
-    <div className="slim-scroll overflow-y-auto" style={{ height: 280 }}>
+    <div className="slim-scroll overflow-y-auto h-full">
       <div style={{ height: chartHeight, minWidth: 0 }}>
         <ResponsiveContainer width="100%" height={chartHeight}>
           <BarChart
