@@ -47,7 +47,7 @@ export default function SalesAreaChart() {
         />
         <Tooltip
           contentStyle={{
-            background: '#0d1520',
+            background: '#0b130b',
             border: '1px solid #1a3a1a',
             borderRadius: 8,
           }}

@@ -54,7 +54,7 @@ export default function Dropzone() {
   return (
     <div
       {...getRootProps()}
-      className={`border-2 border-dashed rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer bg-[#080d14] transition-colors min-h-52 ${
+      className={`border-2 border-dashed rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer bg-[#070d07] transition-colors min-h-52 ${
         isDragActive ? 'border-[#00e676] bg-[#00e676]/5' : 'border-[#1a3a1a] hover:border-[#00e676]/50'
       }`}
     >

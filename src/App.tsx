@@ -14,10 +14,10 @@ export default function App() {
   }, [loadFromDB])
 
   return (
-    <div className="min-h-screen bg-[#060a10] text-slate-100 p-4 flex flex-col gap-3">
+    <div className="min-h-screen bg-[#050805] text-slate-100 p-4 flex flex-col gap-3">
       <div
         className="grid gap-3"
-        style={{ gridTemplateColumns: '180px 1fr 186px' }}
+        style={{ gridTemplateColumns: '180px 1fr 230px' }}
       >
         <Dropzone />
         <ControlBar />

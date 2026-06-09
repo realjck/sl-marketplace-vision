@@ -35,7 +35,7 @@ export default function ControlBar() {
   const isAll = !filters.dateStart && !filters.dateEnd
 
   return (
-    <div className="bg-[#080d14] rounded-xl p-4 flex flex-col gap-3">
+    <div className="bg-[#070d07] rounded-xl p-4 flex flex-col gap-3">
       <p className="text-xs text-[#3a5a3a] uppercase tracking-widest">Controls</p>
 
       <div>
@@ -49,7 +49,7 @@ export default function ControlBar() {
             endDate={filters.dateEnd ?? undefined}
             placeholderText="Start date"
             dateFormat="yyyy-MM-dd"
-            className="bg-[#0d1520] border border-[#1a3a1a] rounded-lg px-3 py-1.5 text-sm text-[#7a9e7a] w-full cursor-pointer"
+            className="bg-[#0b130b] border border-[#1a3a1a] rounded-lg px-3 py-1.5 text-sm text-[#7a9e7a] w-full cursor-pointer"
           />
           <span className="text-[#3a5a3a] shrink-0">→</span>
           <DatePicker
@@ -61,7 +61,7 @@ export default function ControlBar() {
             minDate={filters.dateStart ?? undefined}
             placeholderText="End date"
             dateFormat="yyyy-MM-dd"
-            className="bg-[#0d1520] border border-[#1a3a1a] rounded-lg px-3 py-1.5 text-sm text-[#7a9e7a] w-full cursor-pointer"
+            className="bg-[#0b130b] border border-[#1a3a1a] rounded-lg px-3 py-1.5 text-sm text-[#7a9e7a] w-full cursor-pointer"
           />
         </div>
       </div>

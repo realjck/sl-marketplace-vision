@@ -21,7 +21,7 @@ export default function PreferencesModal() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 bg-[#0d1520] border border-[#1a3a1a] rounded-lg px-3 py-2 text-sm text-[#3a6a3a] hover:text-[#00e676] hover:border-[#00e676]/50 flex items-center gap-2 transition-colors z-40"
+        className="fixed bottom-4 right-4 bg-[#0b130b] border border-[#1a3a1a] rounded-lg px-3 py-2 text-sm text-[#3a6a3a] hover:text-[#00e676] hover:border-[#00e676]/50 flex items-center gap-2 transition-colors z-40"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -46,7 +46,7 @@ export default function PreferencesModal() {
           onClick={handleClose}
         >
           <div
-            className="bg-[#0d1520] rounded-xl p-6 w-80 shadow-2xl border border-[#1a3a1a]"
+            className="bg-[#0b130b] rounded-xl p-6 w-80 shadow-2xl border border-[#1a3a1a]"
             onClick={e => e.stopPropagation()}
           >
             <h2 className="text-base font-semibold text-[#00e676] mb-4">Preferences</h2>
@@ -74,7 +74,7 @@ export default function PreferencesModal() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setConfirming(false)}
-                    className="flex-1 bg-[#080d14] border border-[#1a3a1a] text-[#3a6a3a] rounded-lg px-4 py-2 text-sm hover:border-[#00e676]/50 transition-colors"
+                    className="flex-1 bg-[#070d07] border border-[#1a3a1a] text-[#3a6a3a] rounded-lg px-4 py-2 text-sm hover:border-[#00e676]/50 transition-colors"
                   >
                     Cancel
                   </button>

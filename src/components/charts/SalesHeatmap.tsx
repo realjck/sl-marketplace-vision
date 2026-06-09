@@ -42,7 +42,7 @@ export default function SalesHeatmap() {
                   key={`${dayIdx}-${hour}`}
                   title={`${day} ${hour}:00 — ${vol} sale${vol !== 1 ? 's' : ''}`}
                   className="aspect-square rounded-sm"
-                  style={{ background: vol > 0 ? getColor(vol) : '#1e293b' }}
+                  style={{ background: vol > 0 ? getColor(vol) : '#121f12' }}
                 />
               )
             })}
