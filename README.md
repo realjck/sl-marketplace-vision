@@ -2,7 +2,7 @@
 
 A browser-based dashboard for visualizing your Second Life Marketplace sales history. Drop your CSV exports, explore revenue trends, and identify your top-selling products — all locally, with no account or server required.
 
-![Dashboard preview](.plan/maquette.png)
+![Dashboard preview](docs/screenshot.png)
 
 ---
 
