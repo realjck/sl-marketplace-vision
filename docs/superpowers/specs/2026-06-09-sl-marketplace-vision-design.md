@@ -63,6 +63,9 @@ Full-page dark-theme dashboard. Three-column top row + full-width chart area bel
 
 - **Date range**: two date inputs (start / end)
 - **Quick selectors**: All / Last Year / Last Month buttons
+  - *All*: no date filter applied
+  - *Last Year*: rolling 12 months from today
+  - *Last Month*: rolling 30 days from today
 - **Product filter**: multi-select dropdown with "ALL" toggle at top of list
 
 ### KPI Cards (top right, 280px wide)
@@ -81,7 +84,7 @@ Four cards, calculated from filtered transactions:
 Three tabs, one visible at a time. Toggle **Revenue L$ / Volume** appears in the tab bar (right-aligned), active when relevant to the current tab.
 
 #### Tab 1 — Sales Over Time (Area Chart)
-- X axis: date (grouped by day or month depending on range)
+- X axis: date (grouped by day if range ≤ 90 days, by month otherwise)
 - Y axis: Revenue L$ or Volume (toggle)
 - Smoothed area, Recharts `AreaChart` with `type="monotone"`
 
