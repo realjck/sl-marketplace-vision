@@ -48,9 +48,43 @@ export function groupByTime(
     map.set(label, entry)
   }
 
-  return Array.from(map.entries())
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([label, data]) => ({ label, ...data }))
+  const allLabels = byMonth
+    ? allMonthLabels(effectiveStart, effectiveEnd)
+    : allDayLabels(effectiveStart, effectiveEnd)
+
+  return allLabels.map(label => ({
+    label,
+    ...(map.get(label) ?? { revenue: 0, volume: 0 }),
+  }))
+}
+
+function allMonthLabels(start: Date, end: Date): string[] {
+  const labels: string[] = []
+  let year = start.getFullYear()
+  let month = start.getMonth()
+  const endYear = end.getFullYear()
+  const endMonth = end.getMonth()
+  while (year < endYear || (year === endYear && month <= endMonth)) {
+    labels.push(`${year}-${String(month + 1).padStart(2, '0')}`)
+    month++
+    if (month > 11) { month = 0; year++ }
+  }
+  return labels
+}
+
+function allDayLabels(start: Date, end: Date): string[] {
+  const labels: string[] = []
+  const current = new Date(start)
+  current.setHours(0, 0, 0, 0)
+  const endDay = new Date(end)
+  endDay.setHours(0, 0, 0, 0)
+  while (current <= endDay) {
+    labels.push(
+      `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2, '0')}-${String(current.getDate()).padStart(2, '0')}`,
+    )
+    current.setDate(current.getDate() + 1)
+  }
+  return labels
 }
 
 export interface ProductStat {

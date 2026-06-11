@@ -75,8 +75,9 @@ describe('groupByTime', () => {
       tx({ orderId: 2, price: 0 }),
     ]
     const points = groupByTime(txs, start, end)
-    expect(points[0].volume).toBe(2)
-    expect(points[0].revenue).toBe(480)
+    const june15 = points.find(p => p.label === '2024-06-15')!
+    expect(june15.volume).toBe(2)
+    expect(june15.revenue).toBe(480)
   })
 
   it('returns empty array for no transactions', () => {

@@ -101,7 +101,7 @@ chartMetric: 'revenue' | 'volume'
 
 ## Calculs chart (`computeKPIs`)
 
-- **groupByTime** : reçoit `filteredTransactions` + `dateStart`/`dateEnd` (pour déterminer la granularité uniquement). Granularité : ≤ 90 jours → par jour (`YYYY-MM-DD`), > 90 jours → par mois (`YYYY-MM`).
+- **groupByTime** : reçoit `filteredTransactions` + `dateStart`/`dateEnd` (pour déterminer la granularité uniquement). Granularité : ≤ 90 jours → par jour (`YYYY-MM-DD`), > 90 jours → par mois (`YYYY-MM`). Génère tous les buckets de la plage (timeline régulière) — les périodes sans ventes ont `revenue: 0, volume: 0`.
 - **groupByProduct** : agrège par `productName`, trié par revenue desc.
 - **buildHeatmap** : 168 cellules 7×24. Convention jour : `(getDay()+6)%7` → lundi=0.
 
